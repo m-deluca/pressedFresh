@@ -1,0 +1,25 @@
+ <ion-header-bar class="bar-dark">
+        <h1 class="title">Freshly Pressed</h1>
+      </ion-header-bar>
+      <ion-content>
+    
+        <ion-refresher pulling-text="Pull to refresh" refreshing-text="loading..." on-refresh="loadBlogs()">
+        </ion-refresher>
+          <!-- our list and list items -->
+         
+        <ion-list id="mainList">
+        <p class="introText">Welcome, pull down to load the latest blog posts.</p>
+
+          <ion-item ng-repeat="post in posts" class="item item-thumbnail-left">
+            <img data-ng-src="{{post.author.avatar_URL}}" alt="author image">
+            <h2 data-ng-bind-html="post.title"></h2>
+            <p data-ng-bind-html="post.excerpt"></p>
+            <h3>Author: {{post.author.nice_name}}</h3>
+            <!-- <h2>{{post.title}}</h2>
+            <p>{{post.excerpt}}</p> -->
+            <a href="#/details/{{$index}}">Load Full Post</a>
+          </ion-item>
+        </ion-list>
+</ion-content >
+      <ion-footer-bar class="bar-stable">       
+      </ion-footer-bar>      
